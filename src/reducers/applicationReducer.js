@@ -17,25 +17,26 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case TOGGLE_DARK_MODE:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         themeMode: action.payload.isDarkMode ? 'dark' : 'light'
-      });
+      }
     case TOGGLE_DRAWER:
-      return Object.assign({}, state, {
-        drawerOpen: action.payload.isDrawerOpen
-      });
+      return {
+        ...state, drawerOpen: action.payload.isDrawerOpen
+      }
     case SHOW_GLOBAL_SUCCESS_MESSAGE:
-      return Object.assign({}, state, {
-        globalSuccessMessage: action.payload.message
-      });
+      return {
+        ...state, globalSuccessMessage: action.payload.message
+      }
     case SHOW_GLOBAL_ERROR_MESSAGE:
-      return Object.assign({}, state, {
-        globalErrorMessage: action.payload.message
-      });
+      return {
+        ...state, globalErrorMessage: action.payload.message
+      }
     case SHOW_GLOBAL_MESSAGE:
-      return Object.assign({}, state, {
-        globalMessage: action.payload.message
-      });
+      return {
+        ...state, globalMessage: action.payload.message
+      }
     default:
       return state;
   }
